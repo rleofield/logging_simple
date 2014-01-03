@@ -1,5 +1,5 @@
 /.tmp/
 /Debug/
+/html/
+logging_simple
 /bin/
-/*.pro.user
-/Makefile
