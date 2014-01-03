@@ -19,33 +19,66 @@
 */
 
 #include <iostream>
-#include <fstream>
 
 #include "tLog.h"
+#include "tLog_Category_default.h"
 
 using namespace std;
-using namespace nsl;
 
+using namespace rlf_tlog;
 
+void test_log_A() ;
+void test_log_B() ;
+void test_log_C() ;
+void test_log_D() ;
+void test_thread();
 
-int main( void ) {
-
+void test_log() {
    string lf = "test"; // extension is added (".log")
    bool b = logger().setLogfile( lf );
 
    if( b == false ) {
       cout << "setLogfile: " << lf << " path for logging dosn't exist: '" << lf <<  "'" << endl;
    }
+  // set the level for each category
+   logger().setLogLevel( eLevel::DEBUG, eCategory::_default );
+   logger().setLogLevel( eLevel::WARN, eCategory::Cat_A );
+   logger().setLogLevel( eLevel::DEBUG, eCategory::Cat_B );
+   logger().setLogLevel( eLevel::ERROR_, eCategory::Cat_C );
+   logger().setLogLevel( eLevel::DEBUG, eCategory::Cat_D );
 
-   logger().setLogLevelDebug();
-   logger().Info( lfm_, " Start  " );
+   LOGT_INFO( " Start  " );
+
+   // use macros for logging
+   LOGT_DEBUG( " Debug " );
+   LOGT_INFO( " Info  " );
+   LOGT_WARN( " Warn  " );
+   LOGT_ERROR( " Error  " );
+   LOGT_FATAL( " Fatal  " );
+
+
+   test_log_A();
+   test_log_B();
+   test_log_C();
+   test_log_D();
+   test_thread();
 
    for( int i = 0; i < 100; i++ ) {
       string s = std::to_string( i );
-      logger().Debug( lfm_, "test Log line: " + std::to_string( i ) );
+      LOGT_DEBUG( "test Log line: " + s );
    }
 
-   logger().Info( lfm_, " end: " );
+   LOGT_INFO( " end: " );
+
+}
+
+
+
+int main( void ) {
+
+   test_log();
+
+
 
    return 0;
 }
