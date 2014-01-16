@@ -30,7 +30,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #include "tLogImpl.h"
-#include "tLogDefs.h"
 
 
 using std::stringstream;
@@ -228,10 +227,10 @@ namespace rlf_tlog {
       tCat C = tCat( eCategory::Cat_C, "c" );
       tCat D = tCat( eCategory::Cat_D, "d" );
 
-      tLev DEBUG = tLev( eLevel::DEBUG, "DEBUG" );
+      tLev DEBUG = tLev( eLevel::LDEBUG, "DEBUG" );
       tLev INFO  = tLev( eLevel::INFO, "INFO " );
       tLev WARN  = tLev( eLevel::WARN, "WARN " );
-      tLev ERROR_ = tLev( eLevel::ERROR_, "ERROR" );
+      tLev ERROR_ = tLev( eLevel::LERROR, "ERROR" );
       tLev FATAL = tLev( eLevel::FATAL, "FATAL" );
       tLev NONE = tLev( eLevel::NONE, "" );
    }
@@ -291,6 +290,7 @@ namespace rlf_tlog {
 
       // write category, if not default
       string cs = to_string( lfmcl.category() );
+
       if( cs.size() > 0 ) {
          fp << cs << ":" ;
       }
@@ -356,6 +356,25 @@ namespace rlf_tlog {
 
       return category->cat_level();
    }
+
+	eLevel tLogImpl::findLevel(int level_){
+		std::vector<tLev>::const_iterator level = find( _levs.begin(), _levs.end(), level_ );
+
+		if( level == _levs.end() ) {
+			return eLevel::NONE;
+		}
+		return *level;
+	}
+	eCategory tLogImpl::findCategory(int cat_){
+
+		std::vector<tCat>::iterator category = find( _cats.begin(), _cats.end(), cat_ );
+
+		if( category == _cats.end() ) {
+			return eCategory::_default;
+		}
+		return *category;
+	}
+
 
    bool tLogImpl::check( eCategory cat, eLevel levFunction ) const {
       eLevel level_category = getLogLevel( cat );

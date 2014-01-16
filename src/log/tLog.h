@@ -25,12 +25,13 @@
 #include <string>
 
 
-#include "tLogDefs.h"
-#include "tLogEnum.h"
+#include "tLfmCL.h"
 
 
-
-
+/*! \file tLog.h
+ *  \brief class tLog, mini logger
+ *  \author Richard Albrecht
+ */
 namespace rlf_tlog {
    class tLogImpl;
 }
@@ -51,10 +52,15 @@ namespace rlf_tlog {
       void log( tLfmCL const& lfmc ) const ;
 
       eLevel setLogLevel( eLevel level, eCategory cat  = eCategory::_default )const;
+      eLevel getLogLevel( eCategory cat  = eCategory::_default )const;
 
       // sets the logfile, doesn't change loglevel
       bool setLogfile( std::string const& file )const;
       bool setLogfileWithDate( std::string const& file )const;
+
+			// for Client Interface, convert ints to enum
+			static eLevel findLevel(int level);
+			static eCategory findCategory(int cat);
 
 
    private:
@@ -84,11 +90,8 @@ namespace rlf_tlog {
 #define L_DEFAULT_DEBUG
 
 
+#endif  // TLOG_H
 
-
-
-
-#endif  // TLOG_WITH_CATEGORY_H
 
 //EOF
 

@@ -19,6 +19,12 @@
 */
 
 
+/*! \file tLog_Category_default.h
+\brief macros for logging with line, file, method, eCategory::_default and  eLevel
+
+*/
+
+
 #ifndef TLOG_DEFINE_DEFAULT_H
 #define TLOG_DEFINE_DEFAULT_H
 
@@ -45,10 +51,10 @@ using namespace rlf_tlog;
 // logline in Code
 #ifdef L_DEFAULT_DEBUG
 // enable default category
-#define LOGT_DEBUG(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::_default, eLevel::DEBUG, (exp) )))
+#define LOGT_DEBUG(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::_default, eLevel::LDEBUG, (exp) )))
 #define LOGT_INFO(exp)   (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::_default, eLevel::INFO, (exp)  )))
 #define LOGT_WARN(exp)   (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::_default, eLevel::WARN, (exp) )))
-#define LOGT_ERROR(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::_default, eLevel::ERROR_, (exp)  )))
+#define LOGT_ERROR(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::_default, eLevel::LERROR, (exp)  )))
 #define LOGT_FATAL(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::_default, eLevel::FATAL, (exp) )))
 #else
 #define LOGT_DEBUG(exp)   {}

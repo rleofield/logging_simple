@@ -44,10 +44,10 @@ using namespace rlf_tlog;
 // logline in Code
 
 #ifdef L_A_DEBUG
-#define LOGT_A_DEBUG(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_A, eLevel::DEBUG, (exp) )))
+#define LOGT_A_DEBUG(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_A, eLevel::LDEBUG, (exp) )))
 #define LOGT_A_INFO(exp)   (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_A, eLevel::INFO, (exp)  )))
 #define LOGT_A_WARN(exp)   (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_A, eLevel::WARN, (exp) )))
-#define LOGT_A_ERROR(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_A, eLevel::ERROR_, (exp)  )))
+#define LOGT_A_ERROR(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_A, eLevel::LERROR, (exp)  )))
 #define LOGT_A_FATAL(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_A, eLevel::FATAL, (exp) )))
 #else
 #define LOGT_A_DEBUG(exp)   {}

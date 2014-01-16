@@ -19,57 +19,57 @@
 */
 
 
-#ifndef TLOG_CATEGORIES_H
-#define TLOG_CATEGORIES_H
+/*! \file tLfm.h
+\brief parameterobject for line, file, method
 
+*/
+
+
+
+#ifndef TLFM_H
+#define TLFM_H
+
+#include <cstdint>
 #include <string>
 
-#include "tLogEnum.h"
 
-using std::string;
 
-namespace rlf_tlog {
+namespace rlf_tlfm {
+   using std::string;
 
-   class tLev {
-      eLevel _lev;
-      string _name;
+   class tLfm {
+      uint32_t _line;
+      string _file;
+      string _method;
+
    public:
-      tLev(): _lev( eLevel::NONE ) {}
-      tLev( eLevel a, string n ): _lev( a ), _name( n ) {}
-      ~tLev() {}
-      operator eLevel()const {
-         return _lev;
+      tLfm(): _line( 0 ), _file(), _method() {}
+
+      tLfm( uint32_t line_, std::string const& file_, std::string const& method_ )
+         : _line( line_ ), _file( file_ ), _method( method_ )
+      {}
+      size_t line()const {
+         return _line;
       }
-      string name()const {
-         return _name;
+      std::string file()const {
+         return _file;
       }
+
+      std::string method()const {
+         return _method;
+      }
+      ~tLfm() {}
    };
 
-   class tCat {
-      eCategory _cat;
-      string _name;
-      tLev _cat_level;
-   public:
-      tCat(): _cat( eCategory::_default ) {}
-      tCat( eCategory a, string n ): _cat( a ), _name( n ), _cat_level() {
+   // use of parameterobject for line, file, method
+   inline tLfm Lfm( uint32_t line_, string const& file_, string const& method_ ) {
+      return tLfm( line_, file_, method_ );
+   }
 
-      }
-      ~tCat() {}
-      operator eCategory()const {
-         return _cat;
-      }
-      string name()const {
-         return _name;
-      }
-      void cat_level( tLev  l ) {
-         _cat_level = l;
-      }
-      tLev const& cat_level()const {
-         return _cat_level;
-      }
-   };
 
 }
+
+#define lfm_ Lfm( __LINE__,__FILE__,__FUNCTION__)
 
 #endif
 //EOF

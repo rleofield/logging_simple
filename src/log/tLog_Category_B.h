@@ -19,46 +19,44 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef TLOG_DEFINE_D_H
-#define TLOG_DEFINE_D_H
+#ifndef TLOG_DEFINE_B_H
+#define TLOG_DEFINE_B_H
 
 #include "tLog.h"
 
 
 // wird bei Auslieferung in 'tLog.h' eingestellt
 
-#ifdef L_D_DEBUG
+#ifdef L_B_DEBUG
 // bei Auslieferung auskommentiert
-//#undef L_D_DEBUG
+//#undef L_B_DEBUG
 #endif
 
-#ifndef L_D_DEBUG
+#ifndef L_B_DEBUG
 // bei Auslieferung auskommentiert
-//#define L_D_DEBUG
+//#define L_B_DEBUG
 #endif
 
 
 using namespace rlf_tlog;
 
-
-#ifdef L_D_DEBUG
-
 // logline in Code
-#define LOGT_D_DEBUG(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_D, eLevel::DEBUG, (exp) )))
-#define LOGT_D_INFO(exp)   (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_D, eLevel::INFO, (exp)  )))
-#define LOGT_D_WARN(exp)   (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_D, eLevel::WARN, (exp) )))
-#define LOGT_D_ERROR(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_D, eLevel::ERROR_, (exp)  )))
-#define LOGT_D_FATAL(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_D, eLevel::FATAL, (exp) )))
 
+#ifdef L_B_DEBUG
+#define LOGT_B_DEBUG(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_B, eLevel::LDEBUG, (exp) )))
+#define LOGT_B_INFO(exp)   (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_B, eLevel::INFO, (exp)  )))
+#define LOGT_B_WARN(exp)   (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_B, eLevel::WARN, (exp) )))
+#define LOGT_B_ERROR(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_B, eLevel::LERROR, (exp)  )))
+#define LOGT_B_FATAL(exp)  (logger().log( LfmCL(__LINE__,__FILE__,__FUNCTION__, eCategory::Cat_B, eLevel::FATAL, (exp) )))
 #else
-#define LOGT_D_DEBUG(exp)   {}
-#define LOGT_D_INFO(exp)    {}
-#define LOGT_D_WARN(exp)    {}
-#define LOGT_D_ERROR(exp)   {}
-#define LOGT_D_FATAL(exp)   {}
+#define LOGT_B_DEBUG(exp)   {}
+#define LOGT_B_INFO(exp)    {}
+#define LOGT_B_WARN(exp)    {}
+#define LOGT_B_ERROR(exp)   {}
+#define LOGT_B_FATAL(exp)   {}
 #endif
 
 
-#endif  // TLOG_DEFINE_D_H
+#endif  // TLOG_DEFINE_B_H
 
 //EOF

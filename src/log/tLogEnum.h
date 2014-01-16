@@ -26,7 +26,9 @@
 namespace rlf_tlog {
 
 enum class eLevel: int {
-      DEBUG = 1, INFO, WARN, ERROR_,  FATAL, NONE
+   // MS uses DEBUG as ERROR as Macros in MFC,
+   // so we can't use this here
+      LDEBUG = 1, INFO, WARN, LERROR,  FATAL, NONE
    };
 
 enum class eCategory: int {

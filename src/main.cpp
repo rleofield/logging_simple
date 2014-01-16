@@ -40,12 +40,13 @@ void test_log() {
    if( b == false ) {
       cout << "setLogfile: " << lf << " path for logging dosn't exist: '" << lf <<  "'" << endl;
    }
-  // set the level for each category
-   logger().setLogLevel( eLevel::DEBUG, eCategory::_default );
-   logger().setLogLevel( eLevel::WARN, eCategory::Cat_A );
-   logger().setLogLevel( eLevel::DEBUG, eCategory::Cat_B );
-   logger().setLogLevel( eLevel::ERROR_, eCategory::Cat_C );
-   logger().setLogLevel( eLevel::DEBUG, eCategory::Cat_D );
+
+   // set the level for each category, must be set, default is NONE = no logging
+   logger().setLogLevel( eLevel::WARN, eCategory::_default );
+   logger().setLogLevel( eLevel::LDEBUG, eCategory::Cat_A );
+   logger().setLogLevel( eLevel::LDEBUG, eCategory::Cat_B );
+   logger().setLogLevel( eLevel::LERROR, eCategory::Cat_C );
+   logger().setLogLevel( eLevel::LDEBUG, eCategory::Cat_D );
 
    LOGT_INFO( " Start  " );
 

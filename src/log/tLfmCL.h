@@ -19,8 +19,14 @@
 */
 
 
-#ifndef TLOG_TLFM_H
-#define TLOG_TLFM_H
+/*! \file tLfmCL.h
+\brief parameterobject for line, file, method, category, loglevel
+
+*/
+
+
+#ifndef TLOG_TLFMCL_H
+#define TLOG_TLFMCL_H
 
 #include <cstdint>
 #include <string>
@@ -31,7 +37,6 @@
 namespace rlf_tlog {
    using std::string;
 
-   // line, file, method, category, loglevel
    class tLfmCL {
       uint32_t _line;
       string _file;
