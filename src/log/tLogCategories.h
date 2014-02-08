@@ -51,14 +51,17 @@ namespace rlf_tlog {
       operator eLevel()const {
          return _lev;
       }
-			// for old code
+      // for old code
       operator int()const {
-         return static_cast<int>(_lev);
+         return static_cast<int>( _lev );
       }
-			bool operator==( int val )const{
-				if( val == static_cast<int>(_lev) ) return true;
-				return false;
-			}
+      bool operator==( int val )const {
+         if( val == static_cast<int>( _lev ) ) {
+            return true;
+         }
+
+         return false;
+      }
       string name()const {
          return _name;
       }
@@ -81,14 +84,17 @@ namespace rlf_tlog {
       operator eCategory()const {
          return _cat;
       }
-			// for old code
+      // for old code
       operator int()const {
-         return static_cast<int>(_cat);
+         return static_cast<int>( _cat );
       }
-			bool operator==( int val )const{
-				if( val == static_cast<int>(_cat) ) return true;
-				return false;
-			}
+      bool operator==( int val )const {
+         if( val == static_cast<int>( _cat ) ) {
+            return true;
+         }
+
+         return false;
+      }
       string name()const {
          return _name;
       }

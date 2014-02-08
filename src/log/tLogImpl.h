@@ -75,8 +75,8 @@ namespace rlf_tlog {
       void log( int2type<true>, tLfmCL const& lfmcl ) const ;
 
 
-			static eLevel findLevel(int level);
-			static eCategory findCategory(int cat);
+      static eLevel findLevel( int level );
+      static eCategory findCategory( int cat );
 
 
    };

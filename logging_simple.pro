@@ -46,7 +46,6 @@ INCLUDEPATH += $$PWD/src/demo
 
 SOURCES += \
     src/main.cpp \
-    src/github.cpp \
     src/demo/test_thread.cpp \
     src/demo/test_cat_D.cpp \
     src/demo/test_cat_C.cpp \

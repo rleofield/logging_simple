@@ -357,23 +357,25 @@ namespace rlf_tlog {
       return category->cat_level();
    }
 
-	eLevel tLogImpl::findLevel(int level_){
-		std::vector<tLev>::const_iterator level = find( _levs.begin(), _levs.end(), level_ );
+   eLevel tLogImpl::findLevel( int level_ ) {
+      std::vector<tLev>::const_iterator level = find( _levs.begin(), _levs.end(), level_ );
 
-		if( level == _levs.end() ) {
-			return eLevel::NONE;
-		}
-		return *level;
-	}
-	eCategory tLogImpl::findCategory(int cat_){
+      if( level == _levs.end() ) {
+         return eLevel::NONE;
+      }
 
-		std::vector<tCat>::iterator category = find( _cats.begin(), _cats.end(), cat_ );
+      return *level;
+   }
+   eCategory tLogImpl::findCategory( int cat_ ) {
 
-		if( category == _cats.end() ) {
-			return eCategory::_default;
-		}
-		return *category;
-	}
+      std::vector<tCat>::iterator category = find( _cats.begin(), _cats.end(), cat_ );
+
+      if( category == _cats.end() ) {
+         return eCategory::_default;
+      }
+
+      return *category;
+   }
 
 
    bool tLogImpl::check( eCategory cat, eLevel levFunction ) const {
