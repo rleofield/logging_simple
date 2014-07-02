@@ -6,3 +6,5 @@ logging_simple
 /*.pro.user
 /Makefile
 /*.log
+/.qmake.cache
+/logging_simpl
