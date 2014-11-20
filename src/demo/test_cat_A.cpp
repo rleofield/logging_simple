@@ -26,7 +26,7 @@
 void test_log_A() {
 
    LOGT_A_DEBUG( "msg A Debug" );
-   LOGT_A_INFO( "msg cout Info" );
+   LOGT_A_INFO( "msg A Info" );
    LOGT_A_WARN( "msg A Warn" );
    LOGT_A_ERROR( "msg A Error" );
    LOGT_A_FATAL( "msg A Fatal" );
