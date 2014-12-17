@@ -33,13 +33,15 @@ HEADERS += \
     src/log/tLog_Category_B.h \
     src/log/tLog_Category_A.h \
     src/log/tLfmCL.h \
-    src/log/tLfm.h
+    src/log/tLfm.h \
+    src/boost/win32.h
 
 
 message("qmake logging_simple")
 
 INCLUDEPATH += $$PWD/src
 INCLUDEPATH += $$PWD/src/log
+INCLUDEPATH += $$PWD/src/boost
 INCLUDEPATH += $$PWD/src/demo
 
 QMAKE_CXXFLAGS_DEBUG += -O0
