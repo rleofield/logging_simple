@@ -76,7 +76,7 @@ void test_thread( ) {
       std::vector<Payload> payloads( no_of_threads );
 
       //fill with data
-      for( int i = 0; i < no_of_threads; i++ ) {
+      for( int i = 1; i < no_of_threads+1; i++ ) {
          payloads[i].id    = i;
          payloads[i].other = 6;
       }
