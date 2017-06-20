@@ -8,3 +8,4 @@ logging_simple
 /*.log
 /.qmake.cache
 /logging_simpl
+*.qmake.stash

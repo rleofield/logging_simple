@@ -34,7 +34,11 @@ HEADERS += \
     src/log/tLog_Category_A.h \
     src/log/tLfmCL.h \
     src/log/tLfm.h \
-    src/boost/win32.h
+    src/boost/win32.h \
+    src/log/tLog_Category_A.h \
+    src/log/tLog_Category_B.h \
+    src/log/tLog_Category_C.h \
+    src/log/tLog_Category_D.h
 
 
 message("qmake logging_simple")
